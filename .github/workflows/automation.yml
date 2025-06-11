@@ -18,50 +18,8 @@ env:
   APP_CCPVAULT: "kv-ccp-dev-weu-1"
   RG_CCPVAULT: "rg-ccp-dev-weu-1"
   VITE_MODE: develop
-  VITE_CLIENT_ID: ${{ secrets.VITE_CLIENT_ID }}
-  VITE_REDIRECT_URL: ${{ vars.VITE_REDIRECT_URL }}
-  VITE_TENANT_ID: ${{ secrets.VITE_TENANT_ID }}
-  VITE_PRIVATE_ID: ${{ secrets.VITE_PRIVATE_ID }}
-  VITE_CLOUD_API_URL: https://api-dev.softwareone.cloud
-  VITE_HOST_URL: ${{ vars.VITE_HOST_URL }}
-  VITE_SCOPE_GDAP: ${{ vars.VITE_SCOPE_GDAP }}
-  VITE_SCOPE_FRAUD_ALERTS: api://23400657-c747-4096-99c5-fd15a06d0bd1/user_impersonation
-  VITE_SCOPE_POLICY_CONTROLS_AZURE: api://02fa3e1a-96ea-4d6a-b76e-b55f516ff478/user_impersonation
-  VITE_SCOPE_API_AZURE: ${{ vars.VITE_SCOPE_API_AZURE }}
-  VITE_SCOPE_AWS_CMS: api://9d9c303d-97a0-4fa0-9460-73ceb4174855/.default
-  VITE_SCOPE_ESSENTIALS: api://6d1ac8bc-c8f7-44ee-921e-c6151810a9a8/user_impersonation
-  VITE_SCOPE_API_PORTAL: api://e3c342a2-d327-4fc7-b317-6830318a820a/user_impersonation
-  VITE_API_CUSTOMERS: https://func-mc-awsaadsso-dev-1-weu.azurewebsites.net/api/v1/customer
-  VITE_SCOPE_IMPACT_DATABASES_AZURE: api://02fa3e1a-96ea-4d6a-b76e-b55f516ff478/user_impersonation
-  VITE_SCOPE_LOGIN: ${{ vars.VITE_SCOPE_LOGIN }}
-  VITE_API_CUSTOMERS_AUTH: ${{ secrets.VITE_API_CUSTOMERS_AUTH }}
-  VITE_CLIENT_GRAPH_ID: ${{ secrets.VITE_CLIENT_GRAPH_ID }}
-  VITE_CLIENT_GRAPH_SECRET: ${{ secrets.VITE_CLIENT_GRAPH_SECRET }}
-  VITE_VAULT_NAME: ${{ secrets.VITE_VAULT_NAME }}
-  VITE_DB_KEY: ${{ secrets.VITE_DB_KEY }}
   VITE_SCOPE_AZURE_CMS: ${{ vars.VITE_SCOPE_AZURE_CMS }}
-  VITE_SCOPE_LIGHTHOUSE: ${{ vars.VITE_SCOPE_LIGHTHOUSE }}
-  PUBLIC_SCOPE_POWERBI: ${{ vars.PUBLIC_SCOPE_POWERBI }}
-  SECRET_CCP_WORKSPACE_ID: ${{ secrets.SECRET_CCP_WORKSPACE_ID }}
-  SECRET_APPLICATION_INSIGHTS: ${{ secrets.SECRET_APPLICATION_INSIGHTS }}
-  VITE_SCOPE_AWS_TOKEN: ${{ secrets.VITE_SCOPE_AWS_TOKEN }}
-  VITE_SCOPE_VCP: ${{ vars.VITE_SCOPE_VCP }}
-  VITE_VCP_WORKSPACE_ID: ${{ vars.VITE_VCP_WORKSPACE_ID }}
-  VITE_SCOPE_ENGMT: ${{ vars.VITE_SCOPE_ENGMT }}
-  VITE_SCOPE_PUBLISHERUPDATE: ${{ vars.VITE_SCOPE_PUBLISHERUPDATE }}
-  PUBLIC_CONTAINER_ID: ${{ vars.PUBLIC_CONTAINER_ID }}
-  PUBLIC_SCOPE_AWS_PREMIUM_TOKEN: ${{ vars.PUBLIC_SCOPE_AWS_PREMIUM_TOKEN }}
-  PUBLIC_SCOPE_LIGHTHOUSE_TEMPLATE: ${{ vars.PUBLIC_SCOPE_LIGHTHOUSE_TEMPLATE}}
-  PUBLIC_HEAP_ID: ${{ vars.PUBLIC_HEAP_ID}}
-  PUBLIC_SCOPE_HELPER: ${{ vars.PUBLIC_SCOPE_HELPER}}
-  PUBLIC_CLIENT_HELPER_ID: ${{ vars.PUBLIC_CLIENT_HELPER_ID}}
-  SECRET_HELPER: ${{ secrets.SECRET_HELPER}}
-  PUBLIC_SCOPE_LIGHTHOUSE_PREONBOARDING: ${{ vars.PUBLIC_SCOPE_LIGHTHOUSE_PREONBOARDING}}
-  SECRET_SCOPE_SERVICE_PORTAL: ${{ secrets.SECRET_SCOPE_SERVICE_PORTAL}}
-  VITE_CMP_TOKEN_URL: ${{ vars.VITE_CMP_TOKEN_URL }}
-  VITE_CMP_API_URL: ${{ vars.VITE_CMP_API_URL }}
-  VITE_CMP_CLIENT_ID: ${{ secrets.VITE_CMP_CLIENT_ID }}
-  SECRET_CMP: ${{ secrets.SECRET_CMP}}
+  
 
 permissions:
   id-token: write
@@ -73,6 +31,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get Inputs
+        run: |
+          echo "Log level: ${{ inputs.target }}"
+          echo "Ejecutando correctamente la entreda....."
+      
       - name: Checkout repository
         uses: actions/checkout@v3
 
