@@ -2,13 +2,13 @@ name: development-automation
 on:
   push:
     branches:
-      - "development-automation"
+      - "main"
   workflow_dispatch:
     inputs:
       environment:
         description: "Deployment environment"
         required: true
-        default: "development-automation"
+        default: "main"
 
 env:
   RESOURCE_TYPE: "app"
